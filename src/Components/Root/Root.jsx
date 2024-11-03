@@ -4,12 +4,18 @@ import Nav from "../Nav/Nav";
 
 const Root = () => {
     return (
-        <div className="lg:mx-20">
-            <Nav />
+        <div>
+            <div className="lg:mx-10 mt-8">
+                <Nav />
+            </div>
 
-            <Outlet />
+            <div className="lg:mx-10">
+                <Outlet />
+            </div>
 
-            <Footer />
+            <div className="mt-20">
+                <Footer />
+            </div>
         </div>
     );
 };

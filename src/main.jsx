@@ -11,6 +11,8 @@ import ErrorPage from './Components/ErrorPage/ErrorPage.jsx';
 import Home from './Components/Home/Home.jsx';
 import Statistics from './Components/Statistics/Statistics.jsx';
 import Dashboard from './Components/Dashboard/Dashboard.jsx';
+import CardDetails from './Components/CategoriesContainer/CardDetails/CardDetails.jsx';
+import Categories from './Components/CategoriesContainer/Categories/Categories.jsx';
 
 const router = createBrowserRouter([
   {
@@ -30,6 +32,15 @@ const router = createBrowserRouter([
         path: "/dashboard",
         element: <Dashboard />,
       },
+      {
+        path: "/shop",
+        element: <Categories />
+      },
+      {
+        path: "/product/:productID",
+        element: <CardDetails />,
+        loader: () => fetch('../public/products.json')
+      }
     ],
   },
 ]);
