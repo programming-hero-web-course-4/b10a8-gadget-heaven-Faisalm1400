@@ -2,6 +2,7 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import './Dashboard.css'
 import { useState } from 'react';
+import { GiSettingsKnobs } from 'react-icons/gi';
 
 
 const Dashboard = () => {
@@ -48,8 +49,24 @@ const Dashboard = () => {
                     </div>
                 </div>
             </div>
+
             <div>
-                <h2 className="text-2xl font-bold">{isActive.title}</h2>
+                <div className='flex max-sm:flex-col justify-between items-center pt-10'>
+                    <h2 className="text-2xl font-bold">{isActive.title}</h2>
+                    <div className='flex max-sm:flex-col items-center gap-6'>
+                        <div className="flex font-bold gap-1">
+                            <h2 className="">Total cost:</h2>
+                            <h2 className="">0</h2>
+                        </div>
+                        <div className='flex max-sm:flex-col items-center gap-4'>
+                            <button className="btn btn-xs sm:btn-sm md:btn-md rounded-full bg-gradient-to-tr from-violet-400 to-rose-400 text-white lg:w-36">Sort by Price <GiSettingsKnobs /></button>
+                            <button className="btn btn-xs sm:btn-sm md:btn-md rounded-full bg-gradient-to-tr from-violet-400 to-rose-400 text-white lg:w-36">Purchase</button>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    
+                </div>
             </div>
         </div>
     );

@@ -3,7 +3,7 @@
         "product_id": 1,
         "product_title": "Dell XPS 13",
         "product_image": "https://i.ibb.co.com/jLm4KpR/dell.jpg",
-        "categories": "Laptop",
+        "categories": "Laptops",
         "price": 1200,
         "description": "A powerful and compact laptop with a stunning display.",
         "Specification": [
@@ -19,7 +19,7 @@
         "product_id": 2,
         "product_title": "HP Spectre x360",
         "product_image": "https://i.ibb.co.com/q7VHNPp/HP.jpg",
-        "categories": "Laptop",
+        "categories": "Laptops",
         "price": 1300,
         "description": "A sleek convertible laptop with top-notch performance.",
         "Specification": [
@@ -35,7 +35,7 @@
         "product_id": 3,
         "product_title": "Samsung Galaxy S23",
         "product_image": "https://i.ibb.co.com/ZSBdqm1/Samsung-Galaxy-S23.jpg",
-        "categories": "Phone",
+        "categories": "Phones",
         "price": 900,
         "description": "A flagship smartphone with an exceptional camera and performance.",
         "Specification": [
@@ -50,7 +50,7 @@
         "product_id": 4,
         "product_title": "Google Pixel 7",
         "product_image": "https://i.ibb.co.com/8dfYQGn/Google-Pixel.jpg",
-        "categories": "Phone",
+        "categories": "Phones",
         "price": 700,
         "description": "A smartphone known for its exceptional camera and clean Android experience.",
         "Specification": [
@@ -65,7 +65,7 @@
         "product_id": 5,
         "product_title": "Mechanical Keyboard",
         "product_image": "https://i.ibb.co.com/GT9Hg37/Keyboard.jpg",
-        "categories": "Accessory",
+        "categories": "Accessories",
         "price": 80,
         "description": "A mechanical keyboard with customizable RGB lighting.",
         "Specification": [
@@ -80,7 +80,7 @@
         "product_id": 6,
         "product_title": "Fitbit Versa 4",
         "product_image": "https://i.ibb.co.com/N1f3b5S/Fitbit-Versa-4.jpg",
-        "categories": "Smart Watch",
+        "categories": "Smart Watches",
         "price": 229,
         "description": "A smartwatch for tracking health and fitness metrics.",
         "Specification": [
@@ -95,7 +95,7 @@
         "product_id": 7,
         "product_title": "MacBook Air M2",
         "product_image": "https://i.ibb.co.com/D12RyZN/Mac-Book-Air-M2.jpg",
-        "categories": "MacBook",
+        "categories": "MacBooks",
         "price": 1199,
         "description": "The latest MacBook Air with the powerful M2 chip.",
         "Specification": [
@@ -111,7 +111,7 @@
         "product_id": 8,
         "product_title": "Wireless Mouse",
         "product_image": "https://i.ibb.co.com/Y3B3LJs/Wireless-Mouse.webp",
-        "categories": "Accessory",
+        "categories": "Accessories",
         "price": 50,
         "description": "An ergonomic wireless mouse with a rechargeable battery.",
         "Specification": [

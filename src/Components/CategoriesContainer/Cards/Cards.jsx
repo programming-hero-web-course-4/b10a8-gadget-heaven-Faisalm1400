@@ -1,21 +1,20 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Card from "../Card/Card";
+import { AssetContext } from "../../Root/Root";
 
 const Cards = () => {
+    const { filteredProducts } = useContext(AssetContext);
 
-    const [products, setProducts] = useState([]);
-
-    useEffect(() => {
-        fetch('../../../../public/products.json')
-            .then(res => res.json())
-            .then(data => setProducts(data));
-    }, []);
+    if (filteredProducts.length === 0) {
+        return <div>No products found for the selected category.</div>;
+    }
+    
 
 
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
             {
-                products.map(product => <Card key={product.product_id} product={product} />)
+                filteredProducts.map(product => <Card key={product.product_id} product={product} />)
             }
         </div>
     );
