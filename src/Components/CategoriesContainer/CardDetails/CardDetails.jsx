@@ -1,16 +1,16 @@
 import { useLoaderData, useParams } from 'react-router-dom';
-// import Details from "./Details/Details";
 import { FaRegHeart, FaRegStar } from "react-icons/fa";
 import { MdOutlineShoppingCart } from "react-icons/md";
+import { useContext } from 'react';
+import { AssetContext } from '../../Root/Root';
 
 const CardDetails = () => {
     const { productID } = useParams();
     const data = useLoaderData();
+    const { addToCart } = useContext(AssetContext);
 
     const id = parseInt(productID);
-    // console.log(data, id)
     const product = data.find(product => product.product_id === id);
-    // console.log(product)
 
     const { product_id, product_title, product_image, price, description, Specification, availability, rating } = product;
 
@@ -35,7 +35,7 @@ const CardDetails = () => {
                             <h2 className="card-title text-2xl font-bold">{product_title}</h2>
                             <h4 className='font-semibold text-lg'>Price: ${price}</h4>
                             <div className='badge outline outline-green-400 bg-green-200'>
-                                { availability ? "In Stock":"Out of Stock"}
+                                {availability ? "In Stock" : "Out of Stock"}
                             </div>
                             <p className='font-medium text-gray-400'>{description}</p>
                             <h5 className='font-semibold'>Specification:</h5>
@@ -44,9 +44,9 @@ const CardDetails = () => {
                                     Specification.map((specify, index) => <li key={index}> {specify} </li>)
                                 }
                             </ol>
-                            <h5 className='flex items-center gap-1'><span className='font-semibold'>Rating:</span> {rating}<FaRegStar/></h5>
+                            <h5 className='flex items-center gap-1'><span className='font-semibold'>Rating:</span> {rating}<FaRegStar /></h5>
                             <div className="card-actions justify-start mt-4">
-                                <button className="btn bg-purple-500 rounded-full">Add To Cart <MdOutlineShoppingCart /></button>
+                                <button onClick={()=>addToCart(product_id)} className="btn bg-purple-500 rounded-full">Add To Cart <MdOutlineShoppingCart /></button>
                                 <button className="btn rounded-full bg-white"><FaRegHeart /></button>
                             </div>
                         </div>

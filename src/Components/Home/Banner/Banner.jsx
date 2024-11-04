@@ -10,7 +10,7 @@ const Banner = () => {
                     <p className="py-6">
                         Explore the latest gadgets that will take your experience to the next level. From smart devices to the coolest accessories, we have it all!
                     </p>
-                    <Link to="/shop">
+                    <Link to="/dashboard">
                         <button className="btn bg-white text-purple-500 rounded-full font-bold border-none">Shop Now</button>
                     </Link>
                 </div>

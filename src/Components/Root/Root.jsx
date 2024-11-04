@@ -10,7 +10,28 @@ const Root = () => {
     const [categories, setCategories] = useState([]);
     const [filteredProducts, setFilteredProducts] = useState([]);
 
+    const getStoredCart = () => {
+        const storedCartStr = localStorage.getItem('cart-list');
+        if (storedCartStr) {
+            const storedCart = JSON.parse(storedCartStr);
+            return storedCart;
+        }
+        else {
+            return [];
+        }
 
+    }
+
+    const addToCart = (id) => {
+        const storedCart = getStoredCart();
+        // console.log('added to cart', id);
+        if (storedCart.includes(id)) {
+            console.log(id, 'already exists in the list.');
+        }
+        else {
+            storedCart.push(id); const storedCartStr = JSON.stringify(storedCart); localStorage.setItem('cart-list', storedCartStr);
+        }
+    }
 
     useEffect(() => {
         fetch('products.json')
@@ -37,7 +58,7 @@ const Root = () => {
 
     return (
         <div>
-            <AssetContext.Provider value={{ products, categories, filteredProducts, handleSelectCategory }}>
+            <AssetContext.Provider value={{ products, categories, filteredProducts, handleSelectCategory, addToCart, getStoredCart }}>
                 <div className="lg:mx-10 mt-8">
                     <Nav />
                 </div>

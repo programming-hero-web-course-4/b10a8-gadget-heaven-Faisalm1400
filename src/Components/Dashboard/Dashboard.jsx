@@ -1,11 +1,29 @@
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+
 import 'react-tabs/style/react-tabs.css';
 import './Dashboard.css'
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { GiSettingsKnobs } from 'react-icons/gi';
+import { AssetContext } from '../Root/Root';
+import CartContainer from '../CartContainer/CartContainer';
+import WishlistContainer from '../WishlistContainer/WishlistContainer';
 
 
 const Dashboard = () => {
+    const { getStoredCart, products } = useContext(AssetContext);
+
+
+    const [cartList, setCartList] = useState([]);
+
+
+    useEffect(() => {
+        const storedCartList = getStoredCart();
+        // console.log(storedCartList)
+
+        const storedCartListInt = storedCartList.map(id => parseInt(id));
+        const productCartList = products.filter(product => storedCartListInt.includes(product.product_id));
+
+        setCartList(productCartList);
+    }, [getStoredCart, products]);
 
     const [isActive, setActive] = useState({
         available: true,
@@ -65,7 +83,11 @@ const Dashboard = () => {
                     </div>
                 </div>
                 <div>
-                    
+                    {
+                        isActive.available ? <CartContainer 
+                        setCartList={setCartList} 
+                        cartList={cartList} /> : <WishlistContainer />
+                    }
                 </div>
             </div>
         </div>

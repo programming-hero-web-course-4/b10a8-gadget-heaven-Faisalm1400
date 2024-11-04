@@ -1,15 +1,18 @@
 import { FaRegHeart } from "react-icons/fa";
 import { MdOutlineShoppingCart } from "react-icons/md";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 
 const Nav = () => {
+    const location = useLocation();
+    const isHomePage = location.pathname ==='/';
+
     const links = <div className="grid grid-cols-1 lg:grid-cols-3 gap-2">
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to="/statistics">Statistics</NavLink></li>
         <li><NavLink to="/dashboard">Dashboard</NavLink></li>
     </div>
     return (
-        <div className="navbar bg-purple-500 rounded-t-2xl p-3 text-white">
+        <div className={`navbar ${isHomePage? 'bg-purple-500 text-white': 'bg-white'} rounded-t-2xl p-3 `}>
             <div className="navbar-start">
                 <div className="dropdown">
                     <button className="btn btn-square btn-ghost lg:hidden">
