@@ -7,7 +7,7 @@ import { AssetContext } from '../../Root/Root';
 const CardDetails = () => {
     const { productID } = useParams();
     const data = useLoaderData();
-    const { addToCart, addToWishList } = useContext(AssetContext);
+    const { addToCart, addToWishList, isDisabled } = useContext(AssetContext);
 
     const id = parseInt(productID);
     const product = data.find(product => product.product_id === id);
@@ -47,7 +47,7 @@ const CardDetails = () => {
                             <h5 className='flex items-center gap-1'><span className='font-semibold'>Rating:</span> {rating}<FaRegStar /></h5>
                             <div className="card-actions justify-start mt-4">
                                 <button onClick={() => addToCart(product_id)} className="btn bg-purple-500 rounded-full">Add To Cart <MdOutlineShoppingCart /></button>
-                                <button onClick={() => addToWishList(product_id)} className="btn rounded-full bg-white"><FaRegHeart /></button>
+                                <button disabled={isDisabled} onClick={() => addToWishList(product_id)} className="btn rounded-full bg-white"><FaRegHeart /></button>
                             </div>
                         </div>
                     </div>

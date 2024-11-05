@@ -15,10 +15,10 @@ const Cart = ({ cart,setCartList }) => {
         localStorage.setItem('cart-list', JSON.stringify(updatedCart));
 
         setCartList(prevCartList => prevCartList.filter(item => item.product_id !== id));
-        
+
         toast.info('Product is removed from your Wishlist', {
             position: "top-center",
-            autoClose: 5000,
+            autoClose: 3000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,

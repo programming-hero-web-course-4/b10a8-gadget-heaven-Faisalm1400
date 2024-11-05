@@ -5,7 +5,7 @@ import { MdOutlineShoppingCart } from "react-icons/md";
 import { toast } from "react-toastify";
 
 const Wishlist = ({ wish, setWishlist }) => {
-    const { getStoredWishList } = useContext(AssetContext);
+    const { getStoredWishList, addToCart } = useContext(AssetContext);
     const { product_id, product_title, product_image, description, price } = wish;
 
     const handleRemoveFromWish = (id) => {
@@ -13,13 +13,13 @@ const Wishlist = ({ wish, setWishlist }) => {
 
         const updatedWish = storedWish.filter(wishId => wishId !== id);
 
-        localStorage.setItem('cart-list', JSON.stringify(updatedWish));
+        localStorage.setItem('wish-list', JSON.stringify(updatedWish));
 
         setWishlist(prevWishList => prevWishList.filter(item => item.product_id !== id));
 
         toast.info('Product is removed from your Wishlist', {
             position: "top-center",
-            autoClose: 5000,
+            autoClose: 3000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
@@ -30,7 +30,7 @@ const Wishlist = ({ wish, setWishlist }) => {
 
     };
     return (
-        <div className="card card-side bg-base-100 shadow-xl">
+        <div className="card md:card-side flex-col bg-base-200 p-3">
             <div className="flex justify-end p-2 pt-0 md:hidden">
                 <button className="btn rounded-full">
                     <IoMdCloseCircleOutline onClick={() => handleRemoveFromWish(product_id)} className="text-red-500 font-bold text-2xl" />

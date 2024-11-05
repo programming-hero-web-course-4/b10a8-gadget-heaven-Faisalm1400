@@ -1,10 +1,20 @@
+import { useContext, useEffect, useState } from "react";
 import { FaRegHeart } from "react-icons/fa";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { Link, NavLink, useLocation } from "react-router-dom";
+import { AssetContext } from "../Root/Root";
 
 const Nav = () => {
+    const { getStoredCart } = useContext(AssetContext);
     const location = useLocation();
-    const isHomePage = location.pathname ==='/';
+    const isHomePage = location.pathname === '/';
+
+    const [cartLength, setCartLength] = useState(0);
+
+    useEffect(()=>{
+        const storedCart= getStoredCart();
+        setCartLength(storedCart.length);
+    },[]);
 
     const links = <div className="grid grid-cols-1 lg:grid-cols-3 gap-2">
         <li><NavLink to="/">Home</NavLink></li>
@@ -12,7 +22,7 @@ const Nav = () => {
         <li><NavLink to="/dashboard">Dashboard</NavLink></li>
     </div>
     return (
-        <div className={`navbar ${isHomePage? 'bg-purple-500 text-white': 'bg-white'} rounded-t-2xl p-3 `}>
+        <div className={`navbar ${isHomePage ? 'bg-purple-500 text-white' : 'bg-white'} rounded-t-2xl p-3 `}>
             <div className="navbar-start">
                 <div className="dropdown">
                     <button className="btn btn-square btn-ghost lg:hidden">
@@ -47,25 +57,20 @@ const Nav = () => {
             <div className="navbar-end flex gap-2">
                 <div className="dropdown dropdown-end">
                     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle bg-white">
-                        <MdOutlineShoppingCart className="text-black" />
-                    </div>
-                    <div
-                        tabIndex={0}
-                        className="card card-compact dropdown-content bg-base-100 z-[1] mt-3 w-52 shadow">
-                        <div className="card-body">
-                            <span className="text-lg font-bold">8 Items</span>
-                            <span className="text-info">Subtotal: $999</span>
-                            <div className="card-actions">
-                                <Link to="/dashboard">
-                                    <button className="btn btn-primary btn-block">View cart</button>
-                                </Link>
-                            </div>
+                        <div className="indicator">
+                            <Link to="/dashboard">
+                                <div>
+                                    <MdOutlineShoppingCart className="text-black text-xl" />
+                                </div>
+                                <span className="badge badge-xs indicator-item">{cartLength}</span>
+                            </Link>
                         </div>
+
                     </div>
                 </div>
                 <div className="dropdown dropdown-end items-center">
                     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar bg-white">
-                        <FaRegHeart className="text-black" />
+                        <FaRegHeart className="text-black text-xl" />
                     </div>
                 </div>
             </div>

@@ -31,11 +31,18 @@ const Dashboard = () => {
         setWishlist(productWishList);
     }, [getStoredCart, products]);
 
+    const totalPrice = cartList.reduce((total, products)=> total + products.price, 0);
+
     const [isActive, setActive] = useState({
         available: true,
         status: "cart",
         title: "Cart"
     });
+
+    const handleSortByPrice = () => {
+        const sortedCartList = [...cartList].sort((a,b)=>{return b.price - a.price});
+        setCartList(sortedCartList);
+    };
 
     const handleIsActiveStatus = (status) => {
         if (status === "cart") {
@@ -80,22 +87,22 @@ const Dashboard = () => {
                     <div className='flex max-sm:flex-col items-center gap-6'>
                         <div className="flex font-bold gap-1">
                             <h2 className="">Total cost:</h2>
-                            <h2 className="">0</h2>
+                            <h2 className="">{totalPrice}</h2>
                         </div>
                         <div className='flex max-sm:flex-col items-center gap-4'>
-                            <button className="btn btn-xs sm:btn-sm md:btn-md rounded-full bg-gradient-to-tr from-violet-400 to-rose-400 text-white lg:w-36">Sort by Price <GiSettingsKnobs /></button>
+                            <button onClick={handleSortByPrice} className="btn btn-xs sm:btn-sm md:btn-md rounded-full bg-gradient-to-tr from-violet-400 to-rose-400 text-white lg:w-36">Sort by Price <GiSettingsKnobs /></button>
                             <button className="btn btn-xs sm:btn-sm md:btn-md rounded-full bg-gradient-to-tr from-violet-400 to-rose-400 text-white lg:w-36">Purchase</button>
                         </div>
                     </div>
                 </div>
                 <div>
                     {
-                        isActive.available ? <CartContainer 
-                        setCartList={setCartList} 
-                        cartList={cartList} /> : <WishlistContainer 
-                        setWishlist={setWishlist}
-                        wishlist={wishlist}
-                         />
+                        isActive.available ? <CartContainer
+                            setCartList={setCartList}
+                            cartList={cartList} /> : <WishlistContainer
+                            setWishlist={setWishlist}
+                            wishlist={wishlist}
+                        />
                     }
                 </div>
             </div>

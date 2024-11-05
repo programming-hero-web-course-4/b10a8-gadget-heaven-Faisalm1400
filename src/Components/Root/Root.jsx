@@ -10,8 +10,7 @@ const Root = () => {
     const [products, setProducts] = useState([]);
     const [categories, setCategories] = useState([]);
     const [filteredProducts, setFilteredProducts] = useState([]);
-
-
+    const [isDisabled, setIsDisabled] = useState(false);
 
     const getStoredWishList = () => {
         const wishListStr = localStorage.getItem('wish-list');
@@ -30,14 +29,14 @@ const Root = () => {
             // console.log(id, 'already exist to wishlist.');
             toast.error('Product already exist to Wishlist.', {
                 position: "top-center",
-                autoClose: 5000,
+                autoClose: 3000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true,
                 draggable: true,
                 progress: undefined,
                 theme: "dark",
-                });
+            });
         }
         else {
             storedWishList.push(id);
@@ -45,14 +44,18 @@ const Root = () => {
             localStorage.setItem('wish-list', wishListStr);
             toast.success('Product is added to your Wishlist', {
                 position: "top-center",
-                autoClose: 5000,
+                autoClose: 3000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true,
                 draggable: true,
                 progress: undefined,
                 theme: "dark",
-                });
+            });
+            // const wishDisable = wishListStr;
+            setIsDisabled(true);
+            
+
         }
     }
 
@@ -72,17 +75,17 @@ const Root = () => {
         const storedCart = getStoredCart();
         // console.log('added to cart', id);
         if (storedCart.includes(id)) {
-            console.log(id, 'already exists in the list.');
+            // console.log(id, 'already exists in the list.');
             toast.error('Product already exist to Cart list.', {
                 position: "top-center",
-                autoClose: 5000,
+                autoClose: 3000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true,
                 draggable: true,
                 progress: undefined,
                 theme: "dark",
-                });
+            });
         }
         else {
             storedCart.push(id);
@@ -90,14 +93,14 @@ const Root = () => {
             localStorage.setItem('cart-list', storedCartStr);
             toast.success('Product is added to your Cart List', {
                 position: "top-center",
-                autoClose: 5000,
+                autoClose: 3000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true,
                 draggable: true,
                 progress: undefined,
                 theme: "dark",
-                });
+            });
         }
     }
 
@@ -126,7 +129,7 @@ const Root = () => {
 
     return (
         <div>
-            <AssetContext.Provider value={{ products, categories, filteredProducts, handleSelectCategory, addToCart, getStoredCart,addToWishList, getStoredWishList }}>
+            <AssetContext.Provider value={{ products, categories, filteredProducts, handleSelectCategory, addToCart, getStoredCart, addToWishList, getStoredWishList, isDisabled }}>
                 <div className="lg:mx-10 mt-8">
                     <Nav />
                 </div>

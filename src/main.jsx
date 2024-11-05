@@ -15,6 +15,8 @@ import CardDetails from './Components/CategoriesContainer/CardDetails/CardDetail
 import Categories from './Components/CategoriesContainer/Categories/Categories.jsx';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import WishlistContainer from './Components/WishlistContainer/WishlistContainer.jsx';
+import Wishlist from './Components/Wishlist/Wishlist.jsx';
 
 
 const router = createBrowserRouter([
@@ -36,10 +38,6 @@ const router = createBrowserRouter([
         element: <Dashboard />,
         loader: () => fetch('products.json')
       },
-      // {
-      //   path: "/shop",
-      //   element: <Categories />
-      // },
       {
         path: "/product/:productID",
         element: <CardDetails />,
