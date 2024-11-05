@@ -56,7 +56,7 @@ const Nav = () => {
             </div> */}
             <div className="navbar-end flex gap-2">
                 <div className="dropdown dropdown-end">
-                    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle bg-white">
+                    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle bg-white border-black">
                         <div className="indicator">
                             <Link to="/dashboard">
                                 <div>
@@ -69,7 +69,7 @@ const Nav = () => {
                     </div>
                 </div>
                 <div className="dropdown dropdown-end items-center">
-                    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar bg-white">
+                    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar bg-white border-black">
                         <FaRegHeart className="text-black text-xl" />
                     </div>
                 </div>

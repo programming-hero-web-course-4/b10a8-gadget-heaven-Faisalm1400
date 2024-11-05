@@ -6,7 +6,7 @@ import { AssetContext } from "../../Root/Root";
 const Categories = () => {
     const { categories, handleSelectCategory } = useContext(AssetContext)
 
-    console.log("Categories:", categories);
+    // console.log("Categories:", categories);
 
     return (
         <div>

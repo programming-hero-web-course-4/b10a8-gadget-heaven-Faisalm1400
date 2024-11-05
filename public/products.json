@@ -81,7 +81,7 @@
         "product_title": "Fitbit Versa 4",
         "product_image": "https://i.ibb.co.com/N1f3b5S/Fitbit-Versa-4.jpg",
         "categories": "Smart Watches",
-        "price": 229,
+        "price": 390,
         "description": "A smartwatch for tracking health and fitness metrics.",
         "Specification": [
             "Heart rate monitor",
@@ -112,7 +112,7 @@
         "product_title": "Wireless Mouse",
         "product_image": "https://i.ibb.co.com/Y3B3LJs/Wireless-Mouse.webp",
         "categories": "Accessories",
-        "price": 50,
+        "price": 150,
         "description": "An ergonomic wireless mouse with a rechargeable battery.",
         "Specification": [
             "Ergonomic design",

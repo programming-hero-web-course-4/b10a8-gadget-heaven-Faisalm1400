@@ -1,12 +1,6 @@
-import { useContext, useEffect, useState } from "react";
-import { Bar, BarChart, CartesianGrid, ComposedChart, LineChart as LChart, Legend, Line, Rectangle, Tooltip, XAxis, YAxis } from "recharts";
-import BarChat from "../Charts/BarChart/BarChat";
-import { useLoaderData } from "react-router-dom";
 
-const Statistics = () => {
-    const data = useLoaderData();
-
-
+const BarChat = ({ productData }) => {
+    console.log(productData)
     return (
         <div>
             <div className="hero bg-purple-500">
@@ -21,7 +15,7 @@ const Statistics = () => {
             </div>
             <div className="mt-10 space-y-10">
                 <h2 className="font-bold text-3xl">Statistics</h2>
-                <div className="flex justify-center border py-10 rounded-2xl bg-gray-200 max-md:w-8/12">
+                <div className="flex justify-center border py-10 rounded-2xl bg-gray-200">
                     <ComposedChart
                         width={1200}
                         height={400}
@@ -37,9 +31,10 @@ const Statistics = () => {
                         {/* <Line type="monotone" dataKey="uv" stroke="#ff7300" /> */}
                     </ComposedChart>
                 </div>
+
             </div>
         </div>
     );
 };
 
-export default Statistics;
+export default BarChat;
