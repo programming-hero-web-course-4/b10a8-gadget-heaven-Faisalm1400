@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import { AssetContext } from "../Root/Root";
+import { toast } from "react-toastify";
 
 const Cart = ({ cart,setCartList }) => {
     const { getStoredCart } = useContext(AssetContext);
@@ -14,6 +15,18 @@ const Cart = ({ cart,setCartList }) => {
         localStorage.setItem('cart-list', JSON.stringify(updatedCart));
 
         setCartList(prevCartList => prevCartList.filter(item => item.product_id !== id));
+        
+        toast.info('Product is removed from your Wishlist', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            });
+
 
     };
     return (

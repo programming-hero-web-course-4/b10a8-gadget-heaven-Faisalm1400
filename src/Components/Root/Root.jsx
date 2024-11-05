@@ -3,12 +3,58 @@ import Footer from "../Footer/Footer";
 import Nav from "../Nav/Nav";
 import { createContext, useEffect, useState } from "react";
 import { data } from "autoprefixer";
+import { toast } from "react-toastify";
 export const AssetContext = createContext();
 
 const Root = () => {
     const [products, setProducts] = useState([]);
     const [categories, setCategories] = useState([]);
     const [filteredProducts, setFilteredProducts] = useState([]);
+
+
+
+    const getStoredWishList = () => {
+        const wishListStr = localStorage.getItem('wish-list');
+        if (wishListStr) {
+            const storedWishList = JSON.parse(wishListStr);
+            return storedWishList;
+        }
+        else {
+            return [];
+        }
+    }
+
+    const addToWishList = (id) => {
+        const storedWishList = getStoredWishList();
+        if (storedWishList.includes(id)) {
+            // console.log(id, 'already exist to wishlist.');
+            toast.error('Product already exist to Wishlist.', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                });
+        }
+        else {
+            storedWishList.push(id);
+            const wishListStr = JSON.stringify(storedWishList);
+            localStorage.setItem('wish-list', wishListStr);
+            toast.success('Product is added to your Wishlist', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                });
+        }
+    }
 
     const getStoredCart = () => {
         const storedCartStr = localStorage.getItem('cart-list');
@@ -27,9 +73,31 @@ const Root = () => {
         // console.log('added to cart', id);
         if (storedCart.includes(id)) {
             console.log(id, 'already exists in the list.');
+            toast.error('Product already exist to Cart list.', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                });
         }
         else {
-            storedCart.push(id); const storedCartStr = JSON.stringify(storedCart); localStorage.setItem('cart-list', storedCartStr);
+            storedCart.push(id);
+            const storedCartStr = JSON.stringify(storedCart);
+            localStorage.setItem('cart-list', storedCartStr);
+            toast.success('Product is added to your Cart List', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                });
         }
     }
 
@@ -58,7 +126,7 @@ const Root = () => {
 
     return (
         <div>
-            <AssetContext.Provider value={{ products, categories, filteredProducts, handleSelectCategory, addToCart, getStoredCart }}>
+            <AssetContext.Provider value={{ products, categories, filteredProducts, handleSelectCategory, addToCart, getStoredCart,addToWishList, getStoredWishList }}>
                 <div className="lg:mx-10 mt-8">
                     <Nav />
                 </div>

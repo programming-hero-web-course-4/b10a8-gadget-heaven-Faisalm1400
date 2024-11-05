@@ -9,20 +9,26 @@ import WishlistContainer from '../WishlistContainer/WishlistContainer';
 
 
 const Dashboard = () => {
-    const { getStoredCart, products } = useContext(AssetContext);
+    const { getStoredCart, products, getStoredWishList } = useContext(AssetContext);
 
 
     const [cartList, setCartList] = useState([]);
-
+    const [wishlist, setWishlist] = useState([]);
 
     useEffect(() => {
         const storedCartList = getStoredCart();
+        const storedWishList = getStoredWishList();
         // console.log(storedCartList)
 
         const storedCartListInt = storedCartList.map(id => parseInt(id));
         const productCartList = products.filter(product => storedCartListInt.includes(product.product_id));
 
+        const storedWishListInt = storedWishList.map(id => parseInt(id));
+        const productWishList = products.filter(product => storedWishListInt.includes(product.product_id));
+
         setCartList(productCartList);
+
+        setWishlist(productWishList);
     }, [getStoredCart, products]);
 
     const [isActive, setActive] = useState({
@@ -86,7 +92,10 @@ const Dashboard = () => {
                     {
                         isActive.available ? <CartContainer 
                         setCartList={setCartList} 
-                        cartList={cartList} /> : <WishlistContainer />
+                        cartList={cartList} /> : <WishlistContainer 
+                        setWishlist={setWishlist}
+                        wishlist={wishlist}
+                         />
                     }
                 </div>
             </div>
