@@ -16,10 +16,11 @@ const Nav = () => {
         setCartLength(storedCart.length);
     },[]);
 
-    const links = <div className="grid grid-cols-1 lg:grid-cols-3 gap-2">
+    const links = <div className="grid grid-cols-1 lg:grid-cols-4 gap-2">
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to="/statistics">Statistics</NavLink></li>
         <li><NavLink to="/dashboard">Dashboard</NavLink></li>
+        <li><NavLink to="/contact">Contact</NavLink></li>
     </div>
     return (
         <div className={`navbar ${isHomePage ? 'bg-purple-500 text-white' : 'bg-white'} rounded-t-2xl p-3 `}>

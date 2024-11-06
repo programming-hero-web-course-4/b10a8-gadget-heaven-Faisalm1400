@@ -33,7 +33,7 @@ const CardDetails = () => {
                         </figure>
                         <div className="card-body text-start">
                             <h2 className="card-title text-2xl font-bold">{product_title}</h2>
-                            <h4 className='font-semibold text-lg'>Price: ${price}</h4>
+                            <h4 className='font-semibold text-lg'>Price: {price}$</h4>
                             <div className='badge outline outline-green-400 bg-green-200'>
                                 {availability ? "In Stock" : "Out of Stock"}
                             </div>

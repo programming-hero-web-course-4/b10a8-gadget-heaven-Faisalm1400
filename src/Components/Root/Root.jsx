@@ -11,6 +11,13 @@ const Root = () => {
     const [categories, setCategories] = useState([]);
     const [filteredProducts, setFilteredProducts] = useState([]);
     const [isDisabled, setIsDisabled] = useState(false);
+    const [isPurchase, setIsPurchase] = useState([]);
+
+
+
+    
+
+
 
     const getStoredWishList = () => {
         const wishListStr = localStorage.getItem('wish-list');
@@ -54,7 +61,7 @@ const Root = () => {
             });
             // const wishDisable = wishListStr;
             setIsDisabled(true);
-            
+
 
         }
     }

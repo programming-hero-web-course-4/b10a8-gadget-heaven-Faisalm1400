@@ -17,6 +17,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import WishlistContainer from './Components/WishlistContainer/WishlistContainer.jsx';
 import Wishlist from './Components/Wishlist/Wishlist.jsx';
+import Contact from './Components/Contact/Contact.jsx';
 
 
 const router = createBrowserRouter([
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard",
         element: <Dashboard />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
       },
       {
         path: "/product/:productID",
