@@ -7,15 +7,20 @@ import CartContainer from '../CartContainer/CartContainer';
 import WishlistContainer from '../WishlistContainer/WishlistContainer';
 import { Helmet } from 'react-helmet';
 import modalImg from '../../assets/Group.png'
+import { useNavigate } from 'react-router-dom';
 
 
 const Dashboard = () => {
     const { getStoredCart, products, getStoredWishList } = useContext(AssetContext);
 
-
     const [cartList, setCartList] = useState([]);
     const [wishlist, setWishlist] = useState([]);
+    const navigate = useNavigate();
 
+
+    const goToHome = () => {
+        navigate("/")
+    };
 
     const handlePurchase = () => {
         // console.log('purchased')
@@ -105,7 +110,7 @@ const Dashboard = () => {
                         </div>
                         <div className='flex max-sm:flex-col items-center gap-4'>
                             <button onClick={handleSortByPrice} className="btn btn-xs sm:btn-sm md:btn-md rounded-full bg-gradient-to-tr from-violet-400 to-rose-400 text-white lg:w-36">Sort by Price <GiSettingsKnobs /></button>
-                            <button onClick={handlePurchase} className="btn btn-xs sm:btn-sm md:btn-md rounded-full bg-gradient-to-tr from-violet-400 to-rose-400 text-white lg:w-36">Purchase</button>
+                            <button disabled={cartList.length === 0} onClick={handlePurchase} className="btn btn-xs sm:btn-sm md:btn-md rounded-full bg-gradient-to-tr from-violet-400 to-rose-400 text-white lg:w-36">Purchase</button>
                         </div>
                     </div>
                 </div>
@@ -134,7 +139,7 @@ const Dashboard = () => {
                         </p>
                     </div>
                     <form method="dialog">
-                        <button className="btn w-full rounded-full border-none">Close</button>
+                        <button onClick={() => goToHome()} className="btn w-full rounded-full border-none">Close</button>
                     </form>
                 </div>
             </dialog>
