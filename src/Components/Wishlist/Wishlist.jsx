@@ -45,8 +45,8 @@ const Wishlist = ({ wish, setWishlist }) => {
                 <div className="flex justify-between">
                     <div className="space-y-3">
                         <h2 className="card-title">{product_title}</h2>
-                        <p>{description}</p>
-                        <h3>Price: {price}</h3>
+                        <p><span className="font-semibold">Description:</span> {description}</p>
+                        <h3 className="font-semibold"> Price: ${price}</h3>
                         <div className="">
                             <button onClick={() => addToCart(product_id)} className="btn bg-purple-500 rounded-full">Add To Cart <MdOutlineShoppingCart /></button>
                         </div>

@@ -12,7 +12,7 @@ const Card = ({ product }) => {
             </figure>
             <div className="card-body items-start text-start">
                 <h2 className="card-title">{product_title}</h2>
-                <p>Price: {price}$</p>
+                <p>Price: ${price}</p>
                 <Link to={`/product/${product_id}`} className="card-actions">
                     <button className="btn bg-gradient-to-tr from-violet-400 to-rose-400 rounded-full">View Details</button>
                 </Link>

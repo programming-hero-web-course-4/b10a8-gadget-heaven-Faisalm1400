@@ -1,8 +1,25 @@
-# React + Vite
+### Attach Live Website Link
+- stupendous-actor.surge.sh
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Attach Requirement Document Link
+- https://docs.google.com/document/d/1Wqe7t6JA62ecdy5u1rIFEJSOK239Iaen-JDpq7VNZLY/edit?usp=sharing
 
-Currently, two official plugins are available:
+### List of React Fundamental concepts used in the project
+- Context API
+- Nested Routing
+- Arrow function
+- Hooks
+- Event Handling
+- Conditional Rendering
+- Helmet
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### What you have used for handling and managing data (context API/local storage)
+- Both Context API and Local Storage
+
+
+### 5 features of your website/project
+- Responsive website
+- show products and view product details
+- Add to cart and wishlist
+- Sort by price
+- Purchase

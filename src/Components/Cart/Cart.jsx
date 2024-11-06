@@ -45,8 +45,8 @@ const Cart = ({ cart,setCartList }) => {
                 <div className="flex justify-between">
                     <div className="space-y-2">
                         <h2 className="card-title">{product_title}</h2>
-                        <p>{description}</p>
-                        <h3>Price: {price}$</h3>
+                        <p><span className="font-semibold">Description:</span> {description}</p>
+                        <h3 className="font-semibold"> Price: ${price}</h3>
                     </div>
                     <div className="max-sm:hidden">
                         <button onClick={() => handleRemoveFromCart(product_id)} className="btn btn-xs sm:btn-sm md:btn-md rounded-full"><IoMdCloseCircleOutline className="text-red-500 font-bold text-2xl" /></button>
